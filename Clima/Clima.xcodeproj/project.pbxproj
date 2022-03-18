@@ -9,25 +9,21 @@
 /* Begin PBXBuildFile section */
 		175365E327E24934000FF31A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175365E227E24934000FF31A /* AppDelegate.swift */; };
 		175365E527E24934000FF31A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175365E427E24934000FF31A /* SceneDelegate.swift */; };
-		175365E727E24934000FF31A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175365E627E24934000FF31A /* ViewController.swift */; };
+		175365E727E24934000FF31A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175365E627E24934000FF31A /* WeatherViewController.swift */; };
 		175365EA27E24934000FF31A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175365E827E24934000FF31A /* Main.storyboard */; };
 		175365EC27E24936000FF31A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 175365EB27E24936000FF31A /* Assets.xcassets */; };
 		175365EF27E24936000FF31A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175365ED27E24936000FF31A /* LaunchScreen.storyboard */; };
-		175365FC27E24A42000FF31A /* light_background kopyası.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 175365FA27E24A42000FF31A /* light_background kopyası.pdf */; };
-		175365FD27E24A42000FF31A /* dark_background kopyası.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 175365FB27E24A42000FF31A /* dark_background kopyası.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		175365DF27E24934000FF31A /* Clima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		175365E227E24934000FF31A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		175365E427E24934000FF31A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		175365E627E24934000FF31A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		175365E627E24934000FF31A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		175365E927E24934000FF31A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		175365EB27E24936000FF31A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		175365EE27E24936000FF31A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		175365F027E24936000FF31A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		175365FA27E24A42000FF31A /* light_background kopyası.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "light_background kopyası.pdf"; sourceTree = "<group>"; };
-		175365FB27E24A42000FF31A /* dark_background kopyası.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "dark_background kopyası.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +64,6 @@
 				175365EB27E24936000FF31A /* Assets.xcassets */,
 				175365ED27E24936000FF31A /* LaunchScreen.storyboard */,
 				175365F027E24936000FF31A /* Info.plist */,
-				175365FB27E24A42000FF31A /* dark_background kopyası.pdf */,
-				175365FA27E24A42000FF31A /* light_background kopyası.pdf */,
 			);
 			path = Clima;
 			sourceTree = "<group>";
@@ -85,7 +79,7 @@
 		175365F727E24950000FF31A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				175365E627E24934000FF31A /* ViewController.swift */,
+				175365E627E24934000FF31A /* WeatherViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -157,9 +151,7 @@
 			files = (
 				175365EF27E24936000FF31A /* LaunchScreen.storyboard in Resources */,
 				175365EC27E24936000FF31A /* Assets.xcassets in Resources */,
-				175365FD27E24A42000FF31A /* dark_background kopyası.pdf in Resources */,
 				175365EA27E24934000FF31A /* Main.storyboard in Resources */,
-				175365FC27E24A42000FF31A /* light_background kopyası.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				175365E727E24934000FF31A /* ViewController.swift in Sources */,
+				175365E727E24934000FF31A /* WeatherViewController.swift in Sources */,
 				175365E327E24934000FF31A /* AppDelegate.swift in Sources */,
 				175365E527E24934000FF31A /* SceneDelegate.swift in Sources */,
 			);
