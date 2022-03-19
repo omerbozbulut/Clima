@@ -15,11 +15,16 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cityLabel: UILabel!
     
     @IBOutlet weak var searchTextField: UITextField!
+    
+    let weatherManager = WeatherManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // TextField'dan düzenlemeyle ilgili mesajlara yanıt verir. Kullanıcı tarafından girilen metne ve kullanıcının return'e dokunması gibi bazı özel komutlara yanıt vermek için delegate kullanılır
         searchTextField.delegate = self
+        
+        
     }
 
     @IBAction func searchPressed(_ sender: UIButton) {
@@ -55,9 +60,19 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     // kullanıcı düzenlemeyi durdurduğunda çalıştırılır.
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if let city = searchTextField.text{
+            weatherManager.fetchWeather(cityName: city)
+        }
+        
+        
         searchTextField.text = ""
     }
+ 
+    
+    
+   
+    
     
     
 }
-
