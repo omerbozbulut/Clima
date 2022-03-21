@@ -27,8 +27,16 @@ struct WeatherManager {
             
             
             // 3. Give the session a task
-            let task = urlSession.dataTask(with: url, completionHandler: handle(data:response:error:))// Belirtilen URL'nin içeriğini alan ve ardından bir işleyiciyi veya yöntemi çağıran bir görev oluşturur.
-            
+            let task = urlSession.dataTask(with: url) { (data, responce, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                
+                if let safeData = data {
+                   parseJSON(weatherData: safeData)
+                }
+            }
             
             
             // 4. Start the task
@@ -37,15 +45,24 @@ struct WeatherManager {
         
     }
     
-    func handle(data : Data? , response : URLResponse? , error : Error?){
-        if error != nil {
-            print(error!)
-            return
-        }
-        
-        if let safeData = data {
-            let dataString = String(data: safeData, encoding: .utf8)
-            print(dataString)
+    func parseJSON(weatherData : Data){
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
+            let id = decodedData.weather[0].id
+            let cityName = decodedData.name
+            let temp = decodedData.main.temp
+            
+            let weather = WeatherModel(conditionId: id, cityName: cityName, temperature: temp)
+            
+            print(weather.conditionName)
+            print(weather.temperatureString)
+        } catch{
+            print(error)
         }
     }
+    
+    
+    
+     
 }
