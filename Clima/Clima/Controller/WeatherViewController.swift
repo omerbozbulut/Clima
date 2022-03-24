@@ -8,7 +8,8 @@
 import UIKit
 
 // UITextFieldDelegate metnin düzenlenmesi ve doğrulanmasını yönetmemizi sağlar.
-class WeatherViewController: UIViewController, UITextFieldDelegate {
+class WeatherViewController: UIViewController {
+    
 
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -16,15 +17,16 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var searchTextField: UITextField!
     
-    let weatherManager = WeatherManager()
+    var weatherManager = WeatherManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // TextField'dan düzenlemeyle ilgili mesajlara yanıt verir. Kullanıcı tarafından girilen metne ve kullanıcının return'e dokunması gibi bazı özel komutlara yanıt vermek için delegate kullanılır
         searchTextField.delegate = self
+        weatherManager.delegate = self
         
-        
+        //conditionImageView.image = conditionName
     }
 
     @IBAction func searchPressed(_ sender: UIButton) {
@@ -32,8 +34,18 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         searchTextField.endEditing(true)
         
     }
+
+   
     
-    
+}
+
+
+
+//MARK: - UITextFieldDelegate
+
+
+
+extension WeatherViewController : UITextFieldDelegate{
     // Metin alanı, kullanıcı return düğmesine dokunduğunda bu yöntemi çağırır.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.endEditing(true)
@@ -68,11 +80,22 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         searchTextField.text = ""
     }
- 
+}
+
+
+//MARK: - WeatherManagerDelegate
+
+
+extension WeatherViewController : WeatherManagerDelegate{
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel){
+        DispatchQueue.main.async {
+            self.temperatureLabel.text = weather.temperatureString
+            self.cityLabel.text = weather.cityName
+            self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+        }
+    }
     
-    
-   
-    
-    
-    
+    func didFailWithError(_ error : Error){
+        
+    }
 }
